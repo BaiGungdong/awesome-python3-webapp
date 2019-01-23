@@ -1,4 +1,4 @@
-import logging ;logging.basicConfig(level=logging.INFO)
+import logging; logging.basicConfig(level=logging.INFO)
 import asyncio,os,json,time
 from datetime import datetime
 from aiohttp import web
@@ -7,10 +7,10 @@ def index(request):
     return(web.Response(body = '<h1>Awesome,bai</h1>'.encode('utf-8'), content_type='text/html'))
 
 @asyncio.coroutine
-def init(loop):
+def init( loop ):
     app=web.Application(loop=loop)
     app.router.add_route('GET','/',index)
-    srv=yield from loop.create_server(app.make_handler(),'127.0.0.1',9002)
+    srv = yield from loop.create_server(app.make_handler(),'127.0.0.1',9002)
     logging.info('server started at http://127.0.0.1:9002...')
     return srv
 
