@@ -13,8 +13,9 @@ def init( loop ):
     srv = yield from loop.create_server(app.make_handler(),'127.0.0.1',9002)
     logging.info('server started at http://127.0.0.1:9002...')
     return srv
-
+'''
 loop=asyncio.get_event_loop()
 loop.run_until_complete(init(loop))
 loop.run_forever()
+'''
 
